@@ -1,0 +1,25 @@
+[project]
+name = "reservas-citas-api"
+version = "1.0.0"
+description = "API de reservas de citas (FastAPI + SQLAlchemy 2)"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning", "ignore:Using `httpx`"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP", "SIM"]
+ignore = ["B008", "UP046"]
+
+[tool.ruff.lint.per-file-ignores]
+"alembic/*" = ["I001"]
+
+[tool.ruff.lint.isort]
+known-third-party = ["alembic"]
+known-first-party = ["app"]
